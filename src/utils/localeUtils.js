@@ -1,10 +1,8 @@
-// localeUtils.js
-import { Faker, en, vi, pt_BR,pl	 } from '@faker-js/faker'; 
+import { Faker, en, pt_BR,pl	 } from '@faker-js/faker'; 
 
 export const getFakerWithLocale = (language, seed) => {
   const localeMap = {
-    en,       
-    vi,       
+    en,              
     pt_BR,  
     pl	  
   };
