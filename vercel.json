@@ -2,46 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/package.json",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["backend/client/**", "backend/routes/**", "backend/src/**"]
-      }
+      "src": "src/server.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "headers": [
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "no-referrer-when-downgrade" }
-      ],
-      "continue": true 
-    },
-    {
-      "src": "/api/generate",
-      "dest": "/backend/server.js"
-     
-    },
-   {
-      "src": "/",
-      "dest": "/backend/server.js"
-     
-    },
-    {
-      "src": "/(.+\\.(js|css|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|html|map))$",
-      "dest": "/backend/client/$1"
-    },
-    
-    {
-      "src": "/(.*)",
-      "dest": "/backend/client/index.html"
-      
+      "dest": "src/server.js",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
