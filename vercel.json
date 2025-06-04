@@ -11,32 +11,34 @@
   ],
   "routes": [
     {
-      "src": "/api/generate",
-      "dest": "/backend/server.js" 
-    },
-    {
-      "src": "/",
-      "dest": "/backend/server.js" 
-    },
-    {
-      "src": "/(.+\\.(js|css|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|html|map))$",
-      "dest": "/backend/client/$1"
-    },
-   
-    {
       "src": "/(.*)",
-      "dest": "/backend/client/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
       "headers": [
         { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },
         { "key": "Referrer-Policy", "value": "no-referrer-when-downgrade" }
-      ]
+      ],
+      "continue": true 
+    },
+    {
+      "src": "/api/generate",
+      "dest": "/backend/server.js"
+     
+    },
+   {
+      "src": "/",
+      "dest": "/backend/server.js"
+     
+    },
+    {
+      "src": "/(.+\\.(js|css|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|html|map))$",
+      "dest": "/backend/client/$1"
+    },
+    
+    {
+      "src": "/(.*)",
+      "dest": "/backend/client/index.html"
+      
     }
   ],
   "env": {
