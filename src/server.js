@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const corsOptions = {
-  origin:  ['https://book-generator-gamma.vercel.app','https://book-generator-es5qti2nw-howardgas-projects.vercel.app'],
+  origin:  ['https://book-generator-gamma.vercel.app','https://book-generator-es5qti2nw-howardgas-projects.vercel.app','https://book-generator-10u3ig8z2-howardgas-projects.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'], 
